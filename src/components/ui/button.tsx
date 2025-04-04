@@ -7,7 +7,10 @@ export function Button({ className, children, ...props }: Props) {
   return (
     <button
       {...props}
-      className={twMerge('p-2 bg-neutral-900 rounded-lg', className)}
+      className={twMerge(
+        'py-2 px-4 bg-neutral-900 rounded-xl w-full cursor-pointer transition-transform hover:scale-95',
+        className
+      )}
     >
       {children}
     </button>

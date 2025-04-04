@@ -6,7 +6,7 @@ export function Field(props: Props) {
   return (
     <input
       {...props}
-      className='p-2 rounded-lg outline-none w-full'
+      className='p-2 rounded-xl outline-none w-full'
     />
   );
 }

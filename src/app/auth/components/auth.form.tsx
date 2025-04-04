@@ -12,7 +12,7 @@ export function AuthForm() {
   const { handleSubmit, isPending, onSubmit, register } = useAuthForm(isLogin);
 
   return (
-    <div>
+    <div className='space-y-6'>
       <ToggleForm
         isLogin={isLogin}
         setLogin={setIsLogin}
@@ -21,6 +21,7 @@ export function AuthForm() {
       <Form
         action='/'
         onSubmit={handleSubmit(onSubmit)}
+        className='space-y-4'
       >
         <Field
           {...register('email', VALIDATION_SCHEMES.email)}

@@ -8,7 +8,7 @@ interface Props {
 
 export function ToggleForm({ isLogin, setLogin }: Props) {
   return (
-    <div>
+    <div className='grid grid-cols-2 gap-2'>
       <Button
         onClick={() => {
           setLogin(true);
