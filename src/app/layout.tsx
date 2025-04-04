@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geologica } from 'next/font/google';
 import './globals.css';
+import { Providers } from './providers';
 
 const base = Geologica({
   subsets: ['latin'],
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${base.className} antialiased container mx-auto`}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
