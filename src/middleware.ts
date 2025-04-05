@@ -6,7 +6,7 @@ import { PRIVATE_URL } from './configs/private.url';
 export const middleware = (req: NextRequest) => {
   const { url, cookies } = req;
 
-  const refreshToken = cookies.get(AuthTokens.refreshToken)?.value;
+  const refreshToken = cookies.get(AuthTokens.REFRESH_TOKEN)?.value;
 
   const isAuthPage = url.includes(PUBLIC_URL.AUTH);
 

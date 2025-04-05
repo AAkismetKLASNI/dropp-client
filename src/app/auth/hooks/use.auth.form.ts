@@ -1,18 +1,24 @@
+import { PRIVATE_URL } from '@/configs/private.url';
 import { authService } from '@/services/auth/auth.service';
 import type { IUserDto } from '@/types/user.types';
 import { useMutation } from '@tanstack/react-query';
 import { isAxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
-export function useAuthForm(isLogin: boolean) {
+export function useAuthForm(type: 'login' | 'register') {
+  const successMessage =
+    type === 'login' ? 'Successful authorization !' : 'Successful registration !';
+
   const {
     formState: { errors, isSubmitted, isSubmitting },
     register,
     reset,
     handleSubmit,
   } = useForm<IUserDto>();
+  const router = useRouter();
 
   const clientError = errors.email?.message || errors.password?.message;
 
@@ -25,49 +31,24 @@ export function useAuthForm(isLogin: boolean) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitted]);
 
-  const { mutate: mutateLogin, isPending: isPendingLogin } = useMutation({
-    mutationKey: ['login'],
-    mutationFn: (dto: IUserDto) => authService.main('login', dto),
+  const { mutate, isPending } = useMutation({
+    mutationKey: [type],
+    mutationFn: (dto: IUserDto) => authService.main(type, dto),
     onSuccess: async () => {
+      router.push(PRIVATE_URL.LK);
       const { toast } = await import('react-hot-toast');
-      toast.success('Successful authorization !');
+      toast.success(successMessage);
       reset();
     },
     onError: async (error) => {
       if (isAxiosError(error)) {
         const { toast } = await import('react-hot-toast');
-        toast.error(error.message);
+        toast.error(error.response?.data.message);
       }
     },
   });
 
-  const { mutate: mutateRegister, isPending: isPendingRegister } = useMutation({
-    mutationKey: ['register'],
-    mutationFn: (dto: IUserDto) => authService.main('register', dto),
-    onSuccess: async () => {
-      const { toast } = await import('react-hot-toast');
-      toast.success('Successful registration !');
-      reset();
-    },
-    onError: async (error) => {
-      if (isAxiosError(error)) {
-        const { toast } = await import('react-hot-toast'); // решить с импортом
-        toast.error(error.message);
-      }
-    },
-  });
+  const onSubmit = (dto: IUserDto) => mutate(dto);
 
-  const onSubmit = (dto: IUserDto) => {
-    console.log(dto);
-
-    // if (isLogin) {
-    //   mutateLogin(dto);
-    // } else {
-    //   mutateRegister(dto);
-    // }
-  };
-
-  const isPending = isPendingLogin || isPendingRegister;
-
-  return { register, isPending, onSubmit, handleSubmit };
+  return { register, isPending, handleSubmit, onSubmit };
 }

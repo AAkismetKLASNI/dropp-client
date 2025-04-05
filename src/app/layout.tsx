@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${base.className} antialiased container mx-auto`}>
+      <body className={`${base.className} antialiased px-4`}>
         <Providers>{children}</Providers>
       </body>
     </html>

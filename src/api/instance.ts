@@ -37,8 +37,6 @@ instance.interceptors.response.use(
         await authService.getNewTokens();
         return instance.request(request);
       } catch (error) {
-        console.log('error 2', error);
-
         if (error) {
           removeAccessToken();
         }

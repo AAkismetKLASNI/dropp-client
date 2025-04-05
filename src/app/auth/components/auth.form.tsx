@@ -9,7 +9,9 @@ import { VALIDATION_SCHEMES } from '@/configs/validation.schemes';
 export function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
 
-  const { handleSubmit, isPending, onSubmit, register } = useAuthForm(isLogin);
+  const { handleSubmit, isPending, onSubmit, register } = useAuthForm(
+    isLogin ? 'login' : 'register'
+  );
 
   return (
     <div className='space-y-6'>
@@ -31,6 +33,7 @@ export function AuthForm() {
         <Field
           {...register('password', VALIDATION_SCHEMES.password)}
           placeholder='Password'
+          type='password'
         />
 
         <Button disabled={isPending}>{isLogin ? 'Log in' : 'Sign up'}</Button>
