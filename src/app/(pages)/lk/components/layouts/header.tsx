@@ -9,7 +9,6 @@ import { MenuItem } from '@/components/ui/context-menu/menu.item';
 import { useOutside } from '@/hooks/use.outside';
 import { AnimatePresence } from 'framer-motion';
 import { useLogOut } from '../../hooks/use.log.out';
-import { div } from 'framer-motion/client';
 
 export function Header() {
   const { isShow, ref, setIsShow } = useOutside(false);
@@ -19,7 +18,7 @@ export function Header() {
 
   return (
     <>
-      <header className='p-2 my-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between relative'>
+      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between relative'>
         <div className='flex items-center gap-4'>
           {profile?.avatar ? (
             <Image

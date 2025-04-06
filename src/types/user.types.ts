@@ -1,4 +1,4 @@
-import { IPichure } from './pichure.types';
+import { IPicture } from './picture.types';
 
 export interface IUser {
   id: string;
@@ -6,7 +6,7 @@ export interface IUser {
   avatar: string;
   email: string;
 
-  pichures: IPichure[];
+  pictures: IPicture[];
 }
 
 export interface IUserDto extends Pick<IUser, 'email'> {

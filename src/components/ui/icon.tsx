@@ -21,6 +21,7 @@ export function Icon({
       )}
     >
       <IconComponent
+        className='mx-auto'
         size='20'
         {...props}
       />

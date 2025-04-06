@@ -28,6 +28,7 @@ instance.interceptors.response.use(
   async (error) => {
     const request = error.config;
 
+    // await authService.getNewTokens();
     if (
       error.response.status === 401 ||
       (errorCatch(error) && error.config && !error.config._isReady)

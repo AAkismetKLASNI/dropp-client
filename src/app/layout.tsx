@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geologica } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
+import { SITE_NAME } from '@/constants/seo.constants';
 
 const base = Geologica({
   subsets: ['latin'],
@@ -9,8 +10,9 @@ const base = Geologica({
 });
 
 export const metadata: Metadata = {
-  title: 'Image-rest',
-  description: 'Image-rest',
+  title: { default: 'Home', template: `%s | ${SITE_NAME}` },
+  description: 'Home',
+  icons: '/logo.svg',
 };
 
 export default function RootLayout({
@@ -20,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${base.className} antialiased px-4`}>
+      <body className={`${base.className} antialiased p-4`}>
         <Providers>{children}</Providers>
       </body>
     </html>
