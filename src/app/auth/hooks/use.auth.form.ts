@@ -35,14 +35,12 @@ export function useAuthForm(type: 'login' | 'register') {
     mutationKey: [type],
     mutationFn: (dto: IUserDto) => authService.main(type, dto),
     onSuccess: async () => {
-      router.push(PRIVATE_URL.LK);
-      const { toast } = await import('react-hot-toast');
       toast.success(successMessage);
+      router.push(PRIVATE_URL.LK);
       reset();
     },
     onError: async (error) => {
       if (isAxiosError(error)) {
-        const { toast } = await import('react-hot-toast');
         toast.error(error.response?.data.message);
       }
     },

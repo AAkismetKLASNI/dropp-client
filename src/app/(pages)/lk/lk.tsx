@@ -11,6 +11,7 @@ export function Lk() {
   const { profile, isLoading } = useGetProfile();
 
   const groupedPictures = groupPicturesByDate(profile?.pictures);
+
   return (
     <AnimatePresence mode='wait'>
       {isLoading && <SkeletonGallery key='skeleton' />}

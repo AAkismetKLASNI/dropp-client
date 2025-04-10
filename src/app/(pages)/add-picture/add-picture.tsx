@@ -22,7 +22,7 @@ export function AddPicture() {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col items-center md:items-start md:flex-row md:justify-center gap-6'
+        className='flex flex-col items-center md:items-start md:flex-row md:justify-center gap-6 relative'
       >
         <Field
           ref={fileRef}
@@ -100,7 +100,7 @@ export function AddPicture() {
             disabled={isPending}
             className='mt-2'
           >
-            Share your ideas !
+            Publication
           </ButtonShiny>
         </div>
       </form>

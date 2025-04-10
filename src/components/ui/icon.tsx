@@ -1,7 +1,12 @@
 import type { LucideIcon, LucideProps } from 'lucide-react';
+import type { MouseEventHandler } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-type Props = LucideProps & { icon: LucideIcon; setBg?: boolean };
+type Props = LucideProps & {
+  icon: LucideIcon;
+  setBg?: boolean;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+};
 
 export function Icon({
   icon: IconComponent,
