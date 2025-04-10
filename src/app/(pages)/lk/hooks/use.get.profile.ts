@@ -7,7 +7,7 @@ export function useGetProfile() {
     queryFn: () => userService.getById(),
   });
 
-  const profile = data?.data;
+  const profile = data?.data ? data.data : null;
 
   return { profile, isLoading };
 }

@@ -4,7 +4,7 @@ import Form from 'next/form';
 import { Field } from '@/components/ui/field';
 import { Button } from '@/components/ui/button';
 import { ToggleForm } from './toggle.form';
-import { VALIDATION_SCHEMES } from '@/configs/validation.schemes';
+import { VALIDATION_AUTH } from '@/configs/validation.schemes';
 
 export function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
@@ -26,12 +26,12 @@ export function AuthForm() {
         className='space-y-4'
       >
         <Field
-          {...register('email', VALIDATION_SCHEMES.email)}
+          {...register('email', VALIDATION_AUTH.email)}
           placeholder='Email'
         />
 
         <Field
-          {...register('password', VALIDATION_SCHEMES.password)}
+          {...register('password', VALIDATION_AUTH.password)}
           placeholder='Password'
           type='password'
         />

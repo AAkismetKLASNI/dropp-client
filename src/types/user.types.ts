@@ -14,6 +14,5 @@ export interface IUserDto extends Pick<IUser, 'email'> {
 }
 
 export interface IAuthRes {
-  user: IUser;
   accessToken: string;
 }

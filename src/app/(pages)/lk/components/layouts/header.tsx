@@ -9,6 +9,7 @@ import { MenuItem } from '@/components/ui/context-menu/menu.item';
 import { useOutside } from '@/hooks/use.outside';
 import { AnimatePresence } from 'framer-motion';
 import { useLogOut } from '../../hooks/use.log.out';
+import { Avatar } from '@/components/ui/avatar';
 
 export function Header() {
   const { isShow, ref, setIsShow } = useOutside(false);
@@ -18,21 +19,14 @@ export function Header() {
 
   return (
     <>
-      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between relative'>
+      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between'>
         <div className='flex items-center gap-4'>
-          {profile?.avatar ? (
-            <Image
-              src={profile.avatar}
-              className='h-10 w-10'
-              alt='avatar'
-              height='40'
-              width='40'
-            />
-          ) : (
-            <div className='h-8 w-8 rounded-full bg-orange-600 flex justify-center items-center'>
-              {profile?.email[0]}
-            </div>
-          )}
+          <Avatar
+            avatar={profile?.avatar}
+            email={profile?.email}
+            className='h-8 w-8'
+            size={32}
+          />
 
           {isLoading ? (
             <div className='h-3.5 w-30 rounded-xl bg-white/10'></div>

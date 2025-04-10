@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/(pages)/new-dropp/hooks/use.picture.dropts"
+    "src/app/(pages)/add-picture/hooks/use.picture.dropts"
   ],
   "exclude": ["node_modules"]
 }

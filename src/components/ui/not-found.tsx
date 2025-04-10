@@ -17,7 +17,7 @@ export function NotFound() {
       <span>Nothing was found.</span>
       <Button
         className='w-40'
-        onClick={() => router.push(PUBLIC_URL.NEW_DROPP)}
+        onClick={() => router.push(PUBLIC_URL.ADD_PICTURE)}
       >
         + image
       </Button>

@@ -1,5 +1,5 @@
 export const PUBLIC_URL = {
   HOME: '/',
-  NEW_DROPP: '/new-dropp',
+  ADD_PICTURE: '/add-picture',
   AUTH: '/auth',
 };

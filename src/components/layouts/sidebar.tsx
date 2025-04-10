@@ -31,8 +31,8 @@ export function Sidebar() {
         />
         <Icon
           icon={Plus}
-          onClick={() => router.push(PUBLIC_URL.NEW_DROPP)}
-          className={pathname === PUBLIC_URL.NEW_DROPP ? 'bg-white/10' : ''}
+          onClick={() => router.push(PUBLIC_URL.ADD_PICTURE)}
+          className={pathname === PUBLIC_URL.ADD_PICTURE ? 'bg-white/10' : ''}
         />
         <Icon
           icon={User}

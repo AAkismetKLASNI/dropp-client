@@ -1,4 +1,4 @@
-export const VALIDATION_SCHEMES = {
+export const VALIDATION_AUTH = {
   email: {
     required: { value: true, message: 'Email должен быть заполнен' },
     pattern: {
@@ -16,6 +16,19 @@ export const VALIDATION_SCHEMES = {
     maxLength: {
       value: 25,
       message: 'Пароль должен быть не более 25 символов',
+    },
+  },
+};
+
+export const VALIDATION_PICTURE = {
+  path: {
+    required: true,
+  },
+  originalName: {
+    required: true,
+    maxLength: {
+      value: 25,
+      message: 'Название должно быть не более 25 символов',
     },
   },
 };

@@ -7,7 +7,7 @@ function FieldInner(props: Props, ref: Ref<HTMLInputElement> | undefined) {
     <input
       ref={ref}
       {...props}
-      className={`p-2 rounded-xl outline-none w-full ${props.className}`}
+      className={`p-2 bg-secondary rounded-xl outline-none w-full ${props.className}`}
     />
   );
 }
