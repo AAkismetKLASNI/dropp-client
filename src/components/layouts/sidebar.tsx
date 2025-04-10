@@ -1,25 +1,22 @@
 'use client';
 
-import Image from 'next/image';
 import { Icon } from '../ui/icon';
 import { Home, Plus, User } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 import { PUBLIC_URL } from '@/configs/public.url';
 import { PRIVATE_URL } from '@/configs/private.url';
+import { Logo } from '../ui/logo';
 
 export function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
 
   return (
-    <aside className='order-1 fixed z-10 bottom-0 w-full left-0 right-0 md:inset-auto md:w-auto md:order-none items-center flex flex-row md:flex-col gap-4'>
+    <aside className='order-1 fixed z-10 bottom-0 w-full left-0 right-0 md:inset-auto md:py-4 md:w-auto md:order-none items-center flex flex-row md:flex-col gap-4'>
       <div className='bg-secondary rounded-full p-2 hidden md:block'>
-        <Image
-          src='/logo.svg'
-          alt='logo'
+        <Logo
           className='w-8 h-8'
-          width='32'
-          height='32'
+          size={32}
         />
       </div>
 
@@ -31,8 +28,8 @@ export function Sidebar() {
         />
         <Icon
           icon={Plus}
-          onClick={() => router.push(PUBLIC_URL.ADD_PICTURE)}
-          className={pathname === PUBLIC_URL.ADD_PICTURE ? 'bg-white/10' : ''}
+          onClick={() => router.push(PRIVATE_URL.ADD_PICTURE)}
+          className={pathname === PRIVATE_URL.ADD_PICTURE ? 'bg-white/10' : ''}
         />
         <Icon
           icon={User}

@@ -2,7 +2,7 @@ import { Search } from 'lucide-react';
 import { Button } from './button';
 import { Icon } from './icon';
 import { useRouter } from 'next/navigation';
-import { PUBLIC_URL } from '@/configs/public.url';
+import { PRIVATE_URL } from '@/configs/private.url';
 
 export function NotFound() {
   const router = useRouter();
@@ -17,7 +17,7 @@ export function NotFound() {
       <span>Nothing was found.</span>
       <Button
         className='w-40'
-        onClick={() => router.push(PUBLIC_URL.ADD_PICTURE)}
+        onClick={() => router.push(PRIVATE_URL.ADD_PICTURE)}
       >
         + image
       </Button>

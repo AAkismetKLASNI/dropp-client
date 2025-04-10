@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { useGetProfile } from './hooks/use.get.profile';
-import { SkeletonGallery } from './components/ui/skeleton.gallery';
+import { useGetProfile } from '../../../hooks/use.get.profile';
+import { SkeletonGallery } from '../components/skeleton.gallery';
 import { NotFound } from '@/components/ui/not-found';
 import { groupPicturesByDate } from '@/utils/group.pictures.by.date';
 
@@ -33,7 +33,7 @@ export function Lk() {
                   {pictures.map(({ id, originalName, path, height, width }) => (
                     <div
                       key={id}
-                      className='mb-8 w-full break-inside-avoid space-y-2'
+                      className='mb-6 w-full break-inside-avoid space-y-2'
                     >
                       <Image
                         className=' rounded-xl transition-opacity hover:opacity-40  cursor-pointer'

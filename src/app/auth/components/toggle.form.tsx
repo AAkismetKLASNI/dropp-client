@@ -13,7 +13,7 @@ export function ToggleForm({ isLogin, setLogin }: Props) {
         onClick={() => {
           setLogin(true);
         }}
-        className={`${isLogin && 'bg-neutral-600'}`}
+        className={`${isLogin && 'bg-gradient-to-r from-accent to-[#FF4E63]'}`}
       >
         Log in
       </Button>
@@ -21,7 +21,7 @@ export function ToggleForm({ isLogin, setLogin }: Props) {
         onClick={() => {
           setLogin(false);
         }}
-        className={`${!isLogin && 'bg-neutral-600'}`}
+        className={`${!isLogin && 'bg-gradient-to-l from-accent to-[#FF4E63]'}`}
       >
         Sign Up
       </Button>

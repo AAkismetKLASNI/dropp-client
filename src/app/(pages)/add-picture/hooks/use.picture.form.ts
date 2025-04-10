@@ -22,10 +22,7 @@ export function usePictureForm() {
     },
   });
 
-  const onSubmit = (dto: IPictureDto) => {
-    console.log('dto', dto);
-    mutateSendPicture(dto);
-  };
+  const onSubmit = (dto: IPictureDto) => mutateSendPicture(dto);
 
   return { onSubmit, isPending, register, handleSubmit, watch, setValue };
 }

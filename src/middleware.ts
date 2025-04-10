@@ -19,4 +19,4 @@ export const middleware = (req: NextRequest) => {
   }
 };
 
-export const config = { matcher: ['/lk', '/auth'] };
+export const config = { matcher: ['/lk', '/auth', '/add-picture'] };

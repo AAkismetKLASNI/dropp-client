@@ -24,10 +24,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.main-wrapper {
-  @apply rounded-xl p-2;
-}
-
 .gallery-grid {
-  @apply columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 2xl:columns-7 gap-4;
+  @apply columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 2xl:columns-7;
 }

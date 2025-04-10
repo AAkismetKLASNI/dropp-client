@@ -1,9 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { useGetProfile } from '../../hooks/use.get.profile';
 import { Icon } from '@/components/ui/icon';
-import { AlignRight, LogOut, Settings } from 'lucide-react';
+import { AlignRight, LogOut } from 'lucide-react';
 import { ContextMenu } from '@/components/ui/context-menu/context-menu';
 import { MenuItem } from '@/components/ui/context-menu/menu.item';
 import { useOutside } from '@/hooks/use.outside';
@@ -19,7 +18,7 @@ export function Header() {
 
   return (
     <>
-      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between'>
+      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between relative'>
         <div className='flex items-center gap-4'>
           <Avatar
             avatar={profile?.avatar}
@@ -41,7 +40,6 @@ export function Header() {
         <AnimatePresence>
           {isShow && (
             <ContextMenu ref={ref}>
-              <MenuItem icon={Settings}>Settings</MenuItem>
               <MenuItem
                 disabled={isPending}
                 onClick={() => mutateLogOut()}

@@ -9,9 +9,9 @@ export function useLogOut() {
   const { mutate: mutateLogOut, isPending } = useMutation({
     mutationFn: () => authService.logout(),
     onSuccess: async () => {
-      router.push(PUBLIC_URL.AUTH);
       const { toast } = await import('react-hot-toast');
-      toast.success('Log out!');
+      toast.success('Log-out!');
+      router.push(PUBLIC_URL.AUTH);
     },
   });
 

@@ -5,6 +5,7 @@ import { UseFormSetValue } from 'react-hook-form';
 
 const MIN_WIDTH = 200;
 const MIN_HEIGHT = 320;
+const MAX_SIZE = 420;
 
 export function usePictureDrop(setValue: UseFormSetValue<IPictureDto>) {
   const areaRef = useRef<HTMLDivElement>(null);
@@ -33,15 +34,15 @@ export function usePictureDrop(setValue: UseFormSetValue<IPictureDto>) {
     };
   }, []);
 
-  const uploadImage = (e: ChangeEvent<HTMLInputElement>) => {
+  function uploadImage(e: ChangeEvent<HTMLInputElement>) {
     if (!e.target.files) return;
 
     const file = e.target.files[0];
 
     if (file) processImage(file);
-  };
+  }
 
-  const processImage = (file: File) => {
+  function processImage(file: File) {
     const temporyImage = URL.createObjectURL(file);
 
     const imageElement = new Image();
@@ -59,35 +60,29 @@ export function usePictureDrop(setValue: UseFormSetValue<IPictureDto>) {
         return setValue('path', '');
       }
 
+      const ratio = Math.min(MAX_SIZE / naturalWidth, MAX_SIZE / naturalHeight);
+      const targetHeight = Math.round(naturalHeight * ratio);
+      const targetWidth = Math.round(naturalWidth * ratio);
+
       new Compressor(file, {
         quality: 0.8,
-        maxHeight: 320,
-        maxWidth: 320,
+        maxHeight: targetHeight,
+        maxWidth: targetWidth,
         mimeType: 'image/webp',
         success: (compressed) => {
-          const compressedImage = new Image();
-          compressedImage.src = URL.createObjectURL(compressed);
-
-          compressedImage.onload = () => {
-            setValue('height', compressedImage.naturalHeight);
-            setValue('width', compressedImage.naturalWidth);
-
-            URL.revokeObjectURL(compressedImage.src);
-          };
-
           const reader = new FileReader();
           reader.onload = () => {
             const path = reader.result as string;
 
-            console.log(2, path);
-
+            setValue('height', targetHeight);
+            setValue('width', targetWidth);
             setValue('path', path);
           };
           reader.readAsDataURL(compressed);
         },
       });
     };
-  };
+  }
 
   return { fileRef, areaRef, uploadImage };
 }
