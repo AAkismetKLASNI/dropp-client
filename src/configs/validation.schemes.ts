@@ -27,8 +27,8 @@ export const VALIDATION_PICTURE = {
   originalName: {
     required: true,
     maxLength: {
-      value: 25,
-      message: 'Название должно быть не более 25 символов',
+      value: 64,
+      message: 'Название должно быть не более 64 символов',
     },
   },
 };

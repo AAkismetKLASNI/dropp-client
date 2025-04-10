@@ -18,25 +18,27 @@ export function Header() {
 
   return (
     <>
-      <header className='p-2 rounded-full max-w-140 mx-auto bg-secondary flex justify-between relative'>
+      <header className='p-2 rounded-full max-w-140 mx-auto bg-primary flex justify-between relative'>
         <div className='flex items-center gap-4'>
           <Avatar
             avatar={profile?.avatar}
             email={profile?.email}
-            className='h-8 w-8'
+            className='h-8 w-8 min-w-8'
             size={32}
           />
 
           {isLoading ? (
             <div className='h-3.5 w-30 rounded-xl bg-white/10'></div>
           ) : (
-            <span>{profile?.email}</span>
+            <span className='line-clamp-1 wrap-anywhere'>{profile?.email}</span>
           )}
         </div>
+
         <Icon
           icon={AlignRight}
           onClick={() => setIsShow(!isShow)}
         />
+
         <AnimatePresence>
           {isShow && (
             <ContextMenu ref={ref}>

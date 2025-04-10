@@ -9,7 +9,7 @@ function FieldInner(props: Props, ref: Ref<HTMLInputElement> | undefined) {
       ref={ref}
       {...props}
       className={twMerge(
-        'py-2 px-4 bg-secondary rounded-xl outline-none w-full',
+        'py-2 px-4 bg-primary rounded-xl outline-none block w-full',
         props.className
       )}
     />

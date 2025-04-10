@@ -1,5 +1,5 @@
 import { Search } from 'lucide-react';
-import { Button } from './button';
+import { Button } from './button/button';
 import { Icon } from './icon';
 import { useRouter } from 'next/navigation';
 import { PRIVATE_URL } from '@/configs/private.url';

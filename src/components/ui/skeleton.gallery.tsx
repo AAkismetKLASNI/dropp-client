@@ -1,3 +1,5 @@
+import { m } from 'framer-motion';
+
 const skeletonItems: { height: string }[] = [
   { height: 'h-44' },
   { height: 'h-34' },
@@ -18,16 +20,20 @@ const skeletonItems: { height: string }[] = [
 
 export function SkeletonGallery() {
   return (
-    <ul className='gallery-grid'>
+    <m.ul
+      className='gallery-grid'
+      transition={{ duration: 0.2 }}
+      exit={{ opacity: 0 }}
+    >
       {skeletonItems.map(({ height }, index) => {
         return (
-          <li
+          <m.li
             key={index}
-            className={`w-full block mb-4 bg-white/10 rounded-xl break-inside-avoid ${height}`}
+            className={`w-full block mb-4 bg-secondary rounded-xl break-inside-avoid ${height}`}
             aria-hidden
           />
         );
       })}
-    </ul>
+    </m.ul>
   );
 }

@@ -1,14 +1,15 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { Field } from '@/components/ui/field';
 import { Icon } from '@/components/ui/icon';
-import { CloudDownload, Pencil } from 'lucide-react';
+import { CloudDownload, Pencil, Plus } from 'lucide-react';
 import Image from 'next/image';
 import { usePictureDrop } from './hooks/use.picture.drop';
 import { usePictureForm } from './hooks/use.picture.form';
 import { VALIDATION_PICTURE } from '@/configs/validation.schemes';
 import { Header } from '../../../components/layouts/header';
+import { ButtonShiny } from '@/components/ui/button/button.shiny';
+import { Label } from '@/components/ui/label';
 
 export function AddPicture() {
   const { handleSubmit, onSubmit, isPending, register, watch, setValue } =
@@ -16,7 +17,7 @@ export function AddPicture() {
   const { areaRef, fileRef, uploadImage } = usePictureDrop(setValue);
 
   return (
-    <div className='space-y-8 md:space-y-16 xl:space-y-24'>
+    <div className='space-y-8'>
       <Header />
 
       <form
@@ -30,6 +31,7 @@ export function AddPicture() {
           accept='image/png,image/jpeg,image/gif,image/webp'
           onChange={uploadImage}
         />
+
         {watch('path') ? (
           <div
             className='relative'
@@ -70,16 +72,36 @@ export function AddPicture() {
         )}
 
         <div className='space-y-4 w-full md:w-auto'>
-          <label className='space-y-2 inline-block w-full'>
-            <span className='inline-block'>Add name</span>
-
+          <Label label='add name'>
             <Field
               {...register('originalName', VALIDATION_PICTURE.originalName)}
               placeholder='Name'
             />
-          </label>
+          </Label>
 
-          <Button disabled={isPending}>Share your ideas !</Button>
+          <Label
+            label='add description'
+            pattern='декоративные поля*'
+          >
+            <Field placeholder='description' />
+          </Label>
+
+          <Label
+            label='add tag`s'
+            pattern='декоративные поля*'
+          >
+            <Icon
+              icon={Plus}
+              className='bg-white/5'
+            />
+          </Label>
+
+          <ButtonShiny
+            disabled={isPending}
+            className='mt-2'
+          >
+            Share your ideas !
+          </ButtonShiny>
         </div>
       </form>
     </div>

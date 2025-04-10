@@ -13,14 +13,14 @@ export function Sidebar() {
 
   return (
     <aside className='order-1 fixed z-10 bottom-0 w-full left-0 right-0 md:inset-auto md:py-4 md:w-auto md:order-none items-center flex flex-row md:flex-col gap-4'>
-      <div className='bg-secondary rounded-full p-2 hidden md:block'>
+      <div className='bg-primary rounded-full p-2 hidden md:block'>
         <Logo
           className='w-8 h-8'
           size={32}
         />
       </div>
 
-      <nav className='w-full bg-secondary rounded-none md:rounded-full p-2 grid grid-cols-3 md:grid-cols-1 gap-2'>
+      <nav className='w-full bg-primary rounded-none md:rounded-full p-2 grid grid-cols-3 md:grid-cols-1 gap-2'>
         <Icon
           icon={Home}
           onClick={() => router.push(PUBLIC_URL.HOME)}
