@@ -5,7 +5,9 @@ import { UseFormSetValue } from 'react-hook-form';
 
 const MIN_WIDTH = 200;
 const MIN_HEIGHT = 320;
-const MAX_SIZE = 420;
+const MAX_SIZE = 520;
+
+const VERTICAL_RATIO_THRESHOLD = 1.5;
 
 export function usePictureDrop(setValue: UseFormSetValue<IPictureDto>) {
   const areaRef = useRef<HTMLDivElement>(null);
@@ -60,7 +62,11 @@ export function usePictureDrop(setValue: UseFormSetValue<IPictureDto>) {
         return setValue('path', '');
       }
 
-      const ratio = Math.min(MAX_SIZE / naturalWidth, MAX_SIZE / naturalHeight);
+      const isVertical = naturalHeight / naturalWidth > VERTICAL_RATIO_THRESHOLD;
+
+      const maxSize = isVertical ? MAX_SIZE * 1.4 : MAX_SIZE;
+
+      const ratio = Math.min(maxSize / naturalWidth, maxSize / naturalHeight);
       const targetHeight = Math.round(naturalHeight * ratio);
       const targetWidth = Math.round(naturalWidth * ratio);
 

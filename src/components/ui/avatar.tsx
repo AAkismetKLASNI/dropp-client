@@ -22,7 +22,7 @@ export function Avatar({ avatar, email, className, size }: Props) {
         <div
           className={`${className} rounded-full bg-orange-600 flex justify-center items-center`}
         >
-          {email && email[0]}
+          {email && email[0].toUpperCase()}
         </div>
       )}
     </>

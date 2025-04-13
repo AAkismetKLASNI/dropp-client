@@ -14,8 +14,8 @@ export function usePictureForm() {
 
   const { mutate: mutateSendPicture, isPending } = useMutation({
     mutationFn: (dto: IPictureDto) => pictureService.processPicture(dto),
-    onSuccess: () => {
-      queryClient.refetchQueries({ queryKey: ['profile'] });
+    onSuccess: async () => {
+      await queryClient.refetchQueries({ queryKey: ['profile'] });
 
       toast.success('Successful publication');
       router.push(PRIVATE_URL.LK);
