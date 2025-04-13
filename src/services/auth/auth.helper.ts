@@ -15,7 +15,7 @@ export const getAccessToken = () => {
 
 export const saveAccessToken = (accessToken: string) => {
   Cookies.set(AuthTokens.ACCESS_TOKEN, accessToken, {
-    domain: process.env.NEXT_PUBLIC_DOMAIN, // localhost
+    domain: process.env.NEXT_PUBLIC_DOMAIN,
     sameSite: 'strict',
     expires: new Date(Date.now() + 60 * 60 * 1000),
   });

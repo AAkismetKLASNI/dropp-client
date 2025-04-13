@@ -1,4 +1,5 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
+// import Image from 'next/image';
 import { Avatar } from './avatar';
 
 interface Props {
@@ -14,12 +15,13 @@ interface Props {
 export function Picture(props: Props) {
   return (
     <div className='mb-6 break-inside-avoid space-y-2'>
-      <Image
+      {/* note: очень важно в следующем коммите это исправить . почему - то Image не хочет отображать картинки */}
+      <img
         className='rounded-xl cursor-pointer transition-opacity hover:opacity-40'
         src={props.path}
         alt='picture'
-        width={props.width}
-        height={props.height}
+        // width={props.width}
+        // height={props.height}
       />
 
       <div className='flex gap-2 items-center mx-2'>
