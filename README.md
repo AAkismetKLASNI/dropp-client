@@ -23,11 +23,15 @@ https://github.com/user-attachments/assets/f3050479-d33c-440d-a4ad-d8073b096304
 
 1. **Клонирование клиента**
    ```bash
-   git clone https://github.com/your-username/dropp-client.git
+   git clone https://github.com/AAkismetKLASNI/dropp-client client
 
 2. **Клонирование сервера**
    ```bash
-   git clone https://github.com/AAkismetKLASNI/dropp-server.git
+   git clone https://github.com/AAkismetKLASNI/dropp-server server
+
+2. **Установка зависимостей (client/server)**
+   ```bash
+   bun i
    
 3. **Внедрение .env файла на client**
    ```bash
