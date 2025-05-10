@@ -2,6 +2,8 @@
 
 Аналог Pinterest, который позволяет делиться своими идеями.
 
+Ссылка на Backend-часть: https://github.com/AAkismetKLASNI/dropp-server
+
 https://github.com/user-attachments/assets/f3050479-d33c-440d-a4ad-d8073b096304
 
 ## 🚀 Технологии
